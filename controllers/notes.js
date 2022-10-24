@@ -23,7 +23,8 @@ notesRouter.post('/', (req, res, next) => {
 
     const note = new Note({
         text: body.text,
-        date: new Date()
+        date: new Date(),
+        group: body.group 
     })
 
     note.save()

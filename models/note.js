@@ -7,6 +7,10 @@ const noteSchema = new mongoose.Schema({
         minlength: 5,
         maxlength: 200
     },
+    group:{
+        type: String,
+        defalt: "Notes"
+    },
     date: Date
 })
 
