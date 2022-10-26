@@ -1,0 +1,19 @@
+services:
+  webapp:
+    build:
+      context: ./webapp
+    ports:
+      - '3000:3000'
+    volumes:
+      - './webapp:/opt/app'
+    environment:
+      - "CI:'true'"
+    restart: always
+  api:
+    build:
+      context: ./api
+    ports:
+      - '5000:5000'
+    volumes:
+      - './api:/opt/app'
+    restart: always
