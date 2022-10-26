@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const userSchema = new Schema({
+const userSchema = new mongoose.Schema({
   username: String,
   name: String,
   passwordHash: String,
@@ -24,4 +24,4 @@ userSchema.set('toJSON', {
 
 const user = mongoose.model('User', userSchema);
 
-module.exports = User;
+module.exports = user;
