@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
+import {Helmet} from "react-helmet";
 import noteService from "./services/notes";
 import loginService from "./services/login";
 import NotesList from "./components/NotesList";
-import Search from "./components/Search";
 import Header from "./components/Header";
 import Login from "./components/Login";
 
 const App = () => {
   const [notes, setNotes] = useState([]);
-
-  const [searchText, setSearchText] = useState('');
 
   const [darkMode, setDarkMode] = useState(false);
 
@@ -23,9 +21,8 @@ const App = () => {
       .then(initialNotes => {
         setNotes(initialNotes);
       });
-    console.log(notes)
   }
-  useEffect(hook, []);
+  useEffect(hook, [notes]);
 
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('loggedNoteappUser');
@@ -88,15 +85,21 @@ const App = () => {
     return (
       <div className="container">
         <Header handleToggleDarkMode={setDarkMode} currentMode={darkMode}/>
-        <Search handleSearchNote={setSearchText}/>
         <NotesList notes={notes.filter(note => note.user.username === user.username)} handleAddNote={addNote} handleDeleteNote={deleteNote}/>
       </div>
     );
   };
 
   return (
+    <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Keepaki</title>
+        <link rel="canonical" href="http://example.com/example" />
+      </Helmet>
     <div className={`${darkMode && 'dark-mode'}`}>
       {user === null ? loginForm() : notesForm()}
+    </div>
     </div>
   ) 
 }
