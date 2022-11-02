@@ -31,6 +31,7 @@ const App = () => {
       setUser(user);
       noteService.setToken(user.token);
       console.log(user);
+      console.log(notes);
     }
   }, []);
   const handleLogin = async (e) => {
@@ -52,8 +53,6 @@ const App = () => {
 
   const handleLogout = async (e) => {
     try {
-      const log = null;
-
       window.localStorage.removeItem('loggedNoteappUser');
 
       noteService.setToken(null);
@@ -101,7 +100,7 @@ const App = () => {
     return (
       <div className="container">
         <Header handleToggleDarkMode={setDarkMode} currentMode={darkMode} handleToggleLogout={handleLogout}/>
-        <NotesList notes={notes.filter(note => note.user.username === user.username)} handleAddNote={addNote} handleDeleteNote={deleteNote}/>
+        <NotesList notes={notes.filter((note) => note.user.username === user.username)} handleAddNote={addNote} handleDeleteNote={deleteNote}/>
       </div>
     );
   };
