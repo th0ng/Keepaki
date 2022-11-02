@@ -50,6 +50,22 @@ const App = () => {
     }
   }
 
+  const handleLogout = async (e) => {
+    try {
+      const log = null;
+
+      window.localStorage.removeItem('loggedNoteappUser');
+
+      noteService.setToken(null);
+
+      setUser(null);
+      setUsername('');
+      setPassword('');
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const addNote = (text) => {
     const date = new Date();
     const newNote = {
@@ -84,7 +100,7 @@ const App = () => {
   const notesForm = () => {
     return (
       <div className="container">
-        <Header handleToggleDarkMode={setDarkMode} currentMode={darkMode}/>
+        <Header handleToggleDarkMode={setDarkMode} currentMode={darkMode} handleToggleLogout={handleLogout}/>
         <NotesList notes={notes.filter(note => note.user.username === user.username)} handleAddNote={addNote} handleDeleteNote={deleteNote}/>
       </div>
     );
