@@ -1,7 +1,9 @@
 import React from "react";
 import { useState } from "react";
 
-import { Stack, Form, Button } from "react-bootstrap";
+import { Stack, Form, Button, FormGroup } from "react-bootstrap";
+
+import { HiEye, HiEyeSlash } from "react-icons/hi2";
 
 const Login = ({ handleLogin, setUsername, setPassword }) => {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -9,7 +11,9 @@ const Login = ({ handleLogin, setUsername, setPassword }) => {
     setPasswordShown(!passwordShown);
   }
   return (
-    <Stack gap={2} className="col-md-3 mx-auto">
+    <div className="login-background">
+    <Stack gap={2} className="col-md-3 mx-auto login-box">
+        <h1 className="login-text">Login</h1>
         <Form onSubmit={handleLogin}>
           <Form.Group className="mb-3" >
             <Form.Label>Username</Form.Label>
@@ -18,29 +22,14 @@ const Login = ({ handleLogin, setUsername, setPassword }) => {
           <Form.Group className="mb-3">
             <Form.Label>Password</Form.Label>
             <Form.Control type={passwordShown ? "text" : "password"} name="Password" placeholder="Enter password" onChange={({ target }) => setPassword(target.value)}/>
+            {!passwordShown ? <HiEye onClick={togglePasswordShown}/> : <HiEyeSlash onClick={togglePasswordShown}/>}
           </Form.Group>
-          {/* <div>
-            username 
-            <input 
-              type="text"
-              name="Username"
-              placeholder="username"
-              onChange={({ target }) => setUsername(target.value)}
-            />
-          </div> */}
-          {/* <div>
-            password
-            <input 
-              type={passwordShown ? "text" : "password"}
-              name="Password"
-              placeholder="password"
-              onChange={({ target }) => setPassword(target.value)}
-            />
-            <button onClick={togglePasswordShown}>Show Password</button>
-          </div> */}
-          <Button type="submit" variant='primary' size="lg">Login</Button>
+          <div className="d-grid gap-2">
+            <Button type="submit" size="lg" variant="outline-success">Login</Button>
+          </div>
         </Form>
     </Stack>
+    </div>
   );
 }
 
