@@ -4,7 +4,6 @@ import loginService from "./services/login";
 import NotesList from "./components/NotesList";
 import Search from "./components/Search";
 import Header from "./components/Header";
-import SideBar from "./components/SideBar";
 import Login from "./components/Login";
 
 const App = () => {
@@ -13,11 +12,6 @@ const App = () => {
   const [searchText, setSearchText] = useState('');
 
   const [darkMode, setDarkMode] = useState(false);
-
-
-
-  const [groups, setGroups] = useState([]);
-  const [groupView, setGroupView] = useState('Notes');
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -42,7 +36,6 @@ const App = () => {
       console.log(user);
     }
   }, []);
-
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -94,9 +87,8 @@ const App = () => {
   const notesForm = () => {
     return (
       <div className="container">
-        <Header handleToggleDarkMode={setDarkMode}/>
+        <Header handleToggleDarkMode={setDarkMode} currentMode={darkMode}/>
         <Search handleSearchNote={setSearchText}/>
-        <SideBar groups={groups} handleGroupShow={setGroupView} />
         <NotesList notes={notes.filter(note => note.user.username === user.username)} handleAddNote={addNote} handleDeleteNote={deleteNote}/>
       </div>
     );

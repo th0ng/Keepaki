@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F6F6C9;
 }
 
 code {
@@ -19,11 +24,25 @@ code {
 }
 
 .dark-mode {
-  background-color: black;
+  background-color: #153462;
+}
+
+h1 {
+  color: #153462;
 }
 
 .dark-mode h1 {
-  color: white;
+  color: #F6F6C9;
+}
+
+.mode-toggle-light:hover {
+  cursor: pointer; 
+}
+.mode-toggle-light {
+  color:rgb(233, 233, 233);
+}
+.mode-toggle-dark:hover {
+  cursor: pointer;
 }
 
 .container {
