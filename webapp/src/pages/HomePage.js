@@ -29,8 +29,6 @@ const HomePage = () => {
       const user = JSON.parse(loggedUserJSON);
       setUser(user);
       noteService.setToken(user.token);
-      console.log(user);
-      console.log(notes);
     }
   }, []);
   const handleLogin = async (e) => {

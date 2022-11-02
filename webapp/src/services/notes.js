@@ -22,8 +22,6 @@ const create = async newObject => {
 
 const remove = id => {
     const elementUrl = `/api/notes/${id}`;
-
-    console.log(elementUrl);
     return axios.delete(elementUrl)
         .catch(error => {console.error('There was an error!', error);
     });
