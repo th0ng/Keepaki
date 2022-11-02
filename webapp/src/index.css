@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #F6F6C9;
+  background-color: #4E6C50;
 }
 
 code {
@@ -19,16 +19,17 @@ code {
   justify-content: space-between;
 }
 
-.dark-mode {
-  background-color: #153462;
+.light-mode {
+  background-color: #4E6C50;
 }
 
-h1 {
-  color: #153462;
+.dark-mode {
+  background-color: #395144;
 }
+
 
 .dark-mode h1 {
-  color: #F6F6C9;
+  color: #F0EBCE;
 }
 
 .mode-toggle-light:hover {
@@ -61,13 +62,13 @@ h1 {
 }
 
 .note.new{
-  background-color: #67d7cc;
+  background-color: #AA8B56;
 }
 
 textarea {
   border: none;
   resize: none;
-  background-color: #67d7cc;
+  background-color: #AA8B56;
 }
 
 textarea:focus{
@@ -128,4 +129,6 @@ textarea:focus{
   border-inline-color: black;
 }
 
-
+.login-button {
+  margin-top: 10px;
+}
