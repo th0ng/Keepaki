@@ -1,7 +1,7 @@
-import Register from "./Register";
+import RegisterPage from "./RegisterPage";
 import HomePage from "./HomePage";
 
 export {
   HomePage,
-  Register
+  RegisterPage,
 }

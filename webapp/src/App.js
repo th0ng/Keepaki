@@ -2,7 +2,7 @@ import {Helmet} from "react-helmet";
 
 import { Route, Routes } from 'react-router-dom';
 
-import { HomePage, Register } from './pages';
+import { HomePage, RegisterPage } from './pages';
 
 const App = () => {
 
@@ -16,7 +16,7 @@ const App = () => {
       <div>
       <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/register" element={<RegisterPage />} />
       </Routes>
       </div>
     </div>

@@ -1,32 +1,14 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Stack, Form, Button } from "react-bootstrap";
-
 import { HiEye, HiEyeSlash } from "react-icons/hi2";
 
-import { useState } from "react";
-
-import registerService from "../services/register";
-import noteService from "../services/notes";
-
-const Register = () => {
+const Register = ({handleRegister, setFullname, setUsername, setPassword}) => {
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePasswordShown = () => {
     setPasswordShown(!passwordShown);
   }
 
-  const handleRegister = async (fullname, username, password) => {
-    try {
-      const newUser = await registerService.register({fullname, username, password});
-      window.localStorage.setItem('loggedNoteappUser', JSON.stringify(newUser));
-  
-      noteService.setToken(newUser.token);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
-  const [fullname, setFullname] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
   return (
     <div className="login-background">
     <Stack gap={2} className="col-md-5 mx-auto login-box">
@@ -45,6 +27,7 @@ const Register = () => {
             <Form.Control type={passwordShown ? "text" : "password"} name="password" placeholder="Enter password" onChange={({ target }) => setPassword(target.value)}/>
             {!passwordShown ? <HiEye onClick={togglePasswordShown}/> : <HiEyeSlash onClick={togglePasswordShown}/>}
           </Form.Group>
+          <Link to="/">Already an user? Sign in.</Link>
           <div className="d-grid gap-2 login-button">
             <Button type="submit" size="lg" variant="outline-success">Register</Button>
           </div>
@@ -55,3 +38,4 @@ const Register = () => {
 }
 
 export default Register;
+
