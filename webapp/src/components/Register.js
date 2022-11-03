@@ -3,10 +3,45 @@ import { Link } from 'react-router-dom';
 import { Stack, Form, Button } from "react-bootstrap";
 import { HiEye, HiEyeSlash } from "react-icons/hi2";
 
-const Register = ({handleRegister, setFullname, setUsername, setPassword}) => {
+import notesService from '../services/notes';
+import registerService from '../services/register';
+
+const Register = () => {
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePasswordShown = () => {
     setPasswordShown(!passwordShown);
+  }
+
+  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleRegister = async (e) => {
+    // e.preventDefault();
+    // fetch("/api/users", {
+    //   method: "POST", 
+    //   body: JSON.stringify({
+    //     name: name,
+    //     username: username,
+    //     password: password
+    //   }),
+    // })
+    // .then((response) => response.json())
+    // .then((result) => {
+    //   if(result.message === "SUCCESS") {
+    //     alert("Welcome to Keepaki");
+    //   } else {
+    //     alert("Something went wrong, please try again.");
+    //   }
+    // })
+    e.preventDefault();
+    try {
+      const newUser = await registerService.register(username, name, password);
+      notesService.setToken(newUser.token);
+    } catch (error) {
+      console.log(error);
+    }
+
   }
 
   return (
@@ -16,15 +51,15 @@ const Register = ({handleRegister, setFullname, setUsername, setPassword}) => {
         <Form onSubmit={handleRegister}>
           <Form.Group className="mb-3" >
             <Form.Label>Full name</Form.Label>
-            <Form.Control type="text" name="fullname" placeholder="Enter full name" onChange={({ target }) => setFullname(target.value)}/>
+            <Form.Control type="text" name="Name" placeholder="Enter full name" onChange={({ target }) => setName(target.value)}/>
           </Form.Group>
           <Form.Group className="mb-3" >
             <Form.Label>Username</Form.Label>
-            <Form.Control type="text" name="username" placeholder="Enter username" onChange={({ target }) => setUsername(target.value)}/>
+            <Form.Control type="text" name="Username" placeholder="Enter username" onChange={({ target }) => setUsername(target.value)}/>
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Password</Form.Label>
-            <Form.Control type={passwordShown ? "text" : "password"} name="password" placeholder="Enter password" onChange={({ target }) => setPassword(target.value)}/>
+            <Form.Control type={passwordShown ? "text" : "password"} name="Password" placeholder="Enter password" onChange={({ target }) => setPassword(target.value)}/>
             {!passwordShown ? <HiEye onClick={togglePasswordShown}/> : <HiEyeSlash onClick={togglePasswordShown}/>}
           </Form.Group>
           <Link to="/">Already an user? Sign in.</Link>
