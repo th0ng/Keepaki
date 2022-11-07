@@ -3,45 +3,10 @@ import { Link } from 'react-router-dom';
 import { Stack, Form, Button } from "react-bootstrap";
 import { HiEye, HiEyeSlash } from "react-icons/hi2";
 
-import notesService from '../services/notes';
-import registerService from '../services/register';
-
-const Register = () => {
+const Register = ({handleRegister, setName, setUsername, setPassword}) => {
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePasswordShown = () => {
     setPasswordShown(!passwordShown);
-  }
-
-  const [name, setName] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleRegister = async (e) => {
-    // e.preventDefault();
-    // fetch("/api/users", {
-    //   method: "POST", 
-    //   body: JSON.stringify({
-    //     name: name,
-    //     username: username,
-    //     password: password
-    //   }),
-    // })
-    // .then((response) => response.json())
-    // .then((result) => {
-    //   if(result.message === "SUCCESS") {
-    //     alert("Welcome to Keepaki");
-    //   } else {
-    //     alert("Something went wrong, please try again.");
-    //   }
-    // })
-    e.preventDefault();
-    try {
-      const newUser = await registerService.register(username, name, password);
-      notesService.setToken(newUser.token);
-    } catch (error) {
-      console.log(error);
-    }
-
   }
 
   return (
