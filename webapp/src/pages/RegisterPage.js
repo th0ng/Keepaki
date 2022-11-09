@@ -9,15 +9,21 @@ const RegisterPage = () => {
   const [password, setPassword] = useState("");
   const [registerStatus, setRegisterStatus] = useState(false);
   const [usernameCheckStatus, setUsernameCheckStatus] = useState(true);
-  const [usernameList, setUsernameList] = useState([]);
+  const [userList, setUserList] = useState([]);
 
   const handleRegister = (e) => {
     e.preventDefault();
     try {
-      userService.getAll().then((initialList) => setUsernameList(initialList));
+      userService.getAll().then((initialList) => setUserList(initialList));
       const newUser = { username, name, password };
-
-      registerService.register(newUser);
+      const sameUsername = userList.find(
+        (user) => user.username === newUser.username
+      );
+      if (!sameUsername) {
+        registerService.register(newUser);
+      } else {
+        setUsernameCheckStatus(false);
+      }
       setRegisterStatus(true);
     } catch (error) {
       console.log(error);
