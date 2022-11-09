@@ -1,11 +1,10 @@
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from "react-router-dom";
 
-import { HomePage, RegisterPage } from './pages';
+import { HomePage, RegisterPage } from "./pages";
 
 const App = () => {
-
   return (
     <div>
       <Helmet>
@@ -14,13 +13,13 @@ const App = () => {
         <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
       </Helmet>
       <div>
-      <Routes>
+        <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/register" element={<RegisterPage />} />
-      </Routes>
+        </Routes>
       </div>
     </div>
-  ) 
-}
+  );
+};
 
 export default App;
