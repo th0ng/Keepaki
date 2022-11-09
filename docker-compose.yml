@@ -3,9 +3,9 @@ services:
     build:
       context: ./webapp
     ports:
-      - '3000:3000'
+      - "3000:3000"
     volumes:
-      - './webapp:/opt/app'
+      - "./webapp:/opt/app"
     environment:
       - "CI:'true'"
     restart: always
@@ -13,7 +13,7 @@ services:
     build:
       context: ./api
     ports:
-      - '5000:5000'
+      - "3001:3001"
     volumes:
-      - './api:/opt/app'
+      - "./api:/opt/app"
     restart: always
