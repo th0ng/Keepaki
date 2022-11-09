@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import { Stack, Form, Button } from "react-bootstrap";
 import { HiEye, HiEyeSlash } from "react-icons/hi2";
 
-const Register = ({ handleRegister, setName, setUsername, setPassword }) => {
-  const [registerStatus, setRegisterStatus] = useState(false);
+const Register = ({ handleRegister, setName, setUsername, setPassword, registerStatus }) => {
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePasswordShown = () => {
     setPasswordShown(!passwordShown);

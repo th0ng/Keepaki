@@ -7,12 +7,14 @@ const RegisterPage = () => {
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [registerStatus, setRegisterStatus] = useState(false);
 
   const handleRegister = (e) => {
     e.preventDefault();
     try {
-      const newUsser = {username, name, password};
+      const newUsser = { username, name, password };
       registerService.register(newUsser);
+      setRegisterStatus(true);
     } catch (error) {
       console.log(error);
     }
@@ -20,7 +22,7 @@ const RegisterPage = () => {
   }
 
   return (
-    <Register  handleRegister={handleRegister} setName={setName} setUsername={setUsername} setPassword={setPassword}/>
+    <Register handleRegister={handleRegister} setName={setName} setUsername={setUsername} setPassword={setPassword} registerStatus={registerStatus} />
   )
 }
 
