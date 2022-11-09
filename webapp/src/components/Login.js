@@ -1,12 +1,8 @@
 import React from "react";
 import { useState } from "react";
-
 import { Stack, Form, Button } from "react-bootstrap";
-
 import { HiEye, HiEyeSlash } from "react-icons/hi2";
-
 import { Link } from "react-router-dom";
-
 
 const Login = ({ handleLogin, setUsername, setPassword }) => {
   const [passwordShown, setPasswordShown] = useState(false);

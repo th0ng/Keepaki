@@ -1,7 +1,5 @@
 import { useState } from "react";
 import Register from '../components/Register';
-
-import noteService from '../services/notes';
 import registerService from '../services/register';
 
 
@@ -15,7 +13,6 @@ const RegisterPage = () => {
     try {
       const newUsser = {username, name, password};
       registerService.register(newUsser);
-      // registerService.register({username, name, password});
     } catch (error) {
       console.log(error);
     }
