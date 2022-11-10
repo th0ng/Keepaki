@@ -37,6 +37,7 @@ const RegisterPage = () => {
       setUsername={setUsername}
       setPassword={setPassword}
       registerStatus={registerStatus}
+      usernameCheckStatus={usernameCheckStatus}
     />
   );
 };
