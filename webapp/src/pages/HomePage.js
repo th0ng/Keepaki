@@ -4,7 +4,6 @@ import loginService from "../services/login";
 import NotesList from "../components/NotesList";
 import Header from "../components/Header";
 import Login from "../components/Login";
-import { Tabs, Tab } from "react-bootstrap";
 
 const HomePage = () => {
   const [notes, setNotes] = useState([]);
@@ -106,18 +105,12 @@ const HomePage = () => {
         />
 
         <h4>Bonjour {user.name}, how's your day?</h4>
-        <Tabs defaultActiveKey="all" className="mb-3">
-          <Tab eventkey="all" title="All">
-            <NotesList
-              notes={notes.filter(
-                (note) => note.user.username === user.username
-              )}
-              handleAddNote={addNote}
-              handleDeleteNote={deleteNote}
-            />
-          </Tab>
-          <Tab></Tab>
-        </Tabs>
+
+        <NotesList
+          notes={notes.filter((note) => note.user.username === user.username)}
+          handleAddNote={addNote}
+          handleDeleteNote={deleteNote}
+        />
       </div>
     );
   };
