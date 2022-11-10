@@ -27,48 +27,47 @@ const Register = ({
             Successfully registered. <Link to="/">Back to login?</Link>
           </p>
         )}
-       /*  {!usernameCheckStatus ? (<>) : () } */
-          <Form onSubmit={handleRegister}>
-            <Form.Group className="mb-3">
-              <Form.Label>Full name</Form.Label>
-              <Form.Control
-                type="text"
-                name="Name"
-                placeholder="Enter full name"
-                onChange={({ target }) => setName(target.value)}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Username</Form.Label>
-              <Form.Control
-                type="text"
-                name="Username"
-                placeholder="Enter username"
-                onChange={({ target }) => setUsername(target.value)}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type={passwordShown ? "text" : "password"}
-                name="Password"
-                placeholder="Enter password"
-                onChange={({ target }) => setPassword(target.value)}
-              />
-              {!passwordShown ? (
-                <HiEye onClick={togglePasswordShown} />
-              ) : (
-                <HiEyeSlash onClick={togglePasswordShown} />
-              )}
-            </Form.Group>
-            <Link to="/">Already an user? Sign in.</Link>
-            <div className="d-grid gap-2 login-button">
-              <Button type="submit" size="lg" variant="outline-success">
-                Register
-              </Button>
-            </div>
-          </Form>
-        </Stack>
+        <Form onSubmit={handleRegister}>
+          <Form.Group className="mb-3">
+            <Form.Label>Full name</Form.Label>
+            <Form.Control
+              type="text"
+              name="Name"
+              placeholder="Enter full name"
+              onChange={({ target }) => setName(target.value)}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Username</Form.Label>
+            <Form.Control
+              type="text"
+              name="Username"
+              placeholder="Enter username"
+              onChange={({ target }) => setUsername(target.value)}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type={passwordShown ? "text" : "password"}
+              name="Password"
+              placeholder="Enter password"
+              onChange={({ target }) => setPassword(target.value)}
+            />
+            {!passwordShown ? (
+              <HiEye onClick={togglePasswordShown} />
+            ) : (
+              <HiEyeSlash onClick={togglePasswordShown} />
+            )}
+          </Form.Group>
+          <Link to="/">Already an user? Sign in.</Link>
+          <div className="d-grid gap-2 login-button">
+            <Button type="submit" size="lg" variant="outline-success">
+              Register
+            </Button>
+          </div>
+        </Form>
+      </Stack>
     </div>
   );
 };

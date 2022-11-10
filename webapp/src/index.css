@@ -1,15 +1,15 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #4E6C50;
+  background-color: #4e6c50;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -20,23 +20,23 @@ code {
 }
 
 .light-mode {
-  background-color: #4E6C50;
+  background-color: #4e6c50;
 }
 
 .dark-mode {
   background-color: #395144;
 }
 
-
-.dark-mode h1 {
-  color: #F0EBCE;
+.dark-mode h1,
+.dark-mode h4 {
+  color: #f0ebce;
 }
 
 .mode-toggle-light:hover {
-  cursor: pointer; 
+  cursor: pointer;
 }
 .mode-toggle-light {
-  color:rgb(233, 233, 233);
+  color: rgb(233, 233, 233);
 }
 .mode-toggle-dark:hover {
   cursor: pointer;
@@ -61,17 +61,17 @@ code {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-.note.new{
-  background-color: #AA8B56;
+.note.new {
+  background-color: #aa8b56;
 }
 
 textarea {
   border: none;
   resize: none;
-  background-color: #AA8B56;
+  background-color: #aa8b56;
 }
 
-textarea:focus{
+textarea:focus {
   outline: none;
 }
 
@@ -82,7 +82,7 @@ textarea:focus{
   padding: 5px 10px 5px 10px;
 }
 
-.save:hover{
+.save:hover {
   background-color: #ededed;
   cursor: pointer;
 }
@@ -111,7 +111,7 @@ textarea:focus{
 .login-background {
   min-height: 100vh;
   padding-top: 100px;
-  background-color: #4E6C50;
+  background-color: #4e6c50;
 }
 
 .login-text {
@@ -119,7 +119,7 @@ textarea:focus{
 }
 
 .login-box {
-  background-color: #F6F6C9;
+  background-color: #f6f6c9;
   padding: 30px;
   align-items: center;
   align-self: center;
