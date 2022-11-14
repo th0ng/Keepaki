@@ -6,8 +6,6 @@ services:
       - "3000:3000"
     volumes:
       - "./webapp:/opt/app"
-    environment:
-      - "CI:'true'"
     restart: always
   api:
     build:
