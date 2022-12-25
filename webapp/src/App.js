@@ -1,5 +1,3 @@
-import { Helmet } from "react-helmet";
-
 import { Route, Routes } from "react-router-dom";
 
 import { HomePage, RegisterPage } from "./pages";
